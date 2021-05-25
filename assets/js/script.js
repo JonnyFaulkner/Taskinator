@@ -10,6 +10,13 @@ var taskFormHandler = function(event) {
     var taskInfoEl = document.createElement("div");
     taskInfoEl.className = "task-info";
 
+    if (!taskNameInput || !taskTypeInput) {
+        alert("You need to fill out the task form!");
+        return false;
+    }
+
+    formEl.reset();
+
     var taskDataObj = {
         name: taskNameInput,
         type: taskTypeInput
@@ -28,6 +35,6 @@ var createTaskEl = function(taskDataObj) {
     listItemEl.appendChild(taskInfoEl);
 
     tasksToDoEl.appendChild(listItemEl);
-    
+
 }
 formEl.addEventListener("submit", taskFormHandler);
